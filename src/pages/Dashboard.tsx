@@ -110,7 +110,7 @@ export default function Dashboard() {
 
 type Variant = "destructive" | "success" | "warning" | "info" | "default";
 
-function MetricCard({ label, value, variant, icon: Icon }: { label: string; value: string; variant: Variant; icon: React.ElementType }) {
+function MetricCard({ label, value, variant, icon: Icon }: { label: string; value: string; variant: Variant; icon?: React.ElementType }) {
   const ring: Record<Variant, string> = {
     destructive: "border-destructive/40 bg-destructive/5",
     success: "border-success/40 bg-success/5",
