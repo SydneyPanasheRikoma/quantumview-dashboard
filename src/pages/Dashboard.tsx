@@ -42,7 +42,7 @@ export default function Dashboard() {
           variant={driftDanger ? "destructive" : "success"}
           icon={TrendingDown}
         />
-        <MetricCard label="Heal Success Rate" value={`${metrics.healSuccessRate}%`} variant="success" icon={Heart} />
+        <MetricCard label="Heal Success Rate" value={`${metrics.healSuccessRate}%`} variant="success" />
         <MetricCard label="Webhooks (60 min)" value={metrics.totalWebhooksLastHour.toLocaleString()} variant="info" icon={Webhook} />
         <MetricCard
           label="Manual Queue"
