@@ -42,7 +42,7 @@ export default function Dashboard() {
           variant={driftDanger ? "destructive" : "success"}
           icon={TrendingDown}
         />
-        <MetricCard label="Heal Success Rate" value={`${metrics.healSuccessRate}%`} variant="success" icon={Heart} />
+        <MetricCard label="Heal Success Rate" value={`${metrics.healSuccessRate}%`} variant="success" />
         <MetricCard label="Webhooks (60 min)" value={metrics.totalWebhooksLastHour.toLocaleString()} variant="info" icon={Webhook} />
         <MetricCard
           label="Manual Queue"
@@ -110,7 +110,7 @@ export default function Dashboard() {
 
 type Variant = "destructive" | "success" | "warning" | "info" | "default";
 
-function MetricCard({ label, value, variant, icon: Icon }: { label: string; value: string; variant: Variant; icon: React.ElementType }) {
+function MetricCard({ label, value, variant, icon: Icon }: { label: string; value: string; variant: Variant; icon?: React.ElementType }) {
   const ring: Record<Variant, string> = {
     destructive: "border-destructive/40 bg-destructive/5",
     success: "border-success/40 bg-success/5",
@@ -130,7 +130,7 @@ function MetricCard({ label, value, variant, icon: Icon }: { label: string; valu
     <div className={`bg-card border rounded-lg shadow-sm p-4 ${ring[variant]}`}>
       <div className="flex items-center justify-between mb-2">
         <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">{label}</span>
-        <Icon className={`h-4 w-4 ${text[variant]}`} />
+        {Icon && <Icon className={`h-4 w-4 ${text[variant]}`} />}
       </div>
       <p className={`text-2xl font-bold tabular-nums ${text[variant]}`}>{value}</p>
     </div>
